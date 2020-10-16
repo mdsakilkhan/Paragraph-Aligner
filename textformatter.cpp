@@ -9,7 +9,7 @@ int main() {
     string inputText, finalText, format, tempWord, line;
     vector<string> allText, allTextdup;
         
-	while (true) { 
+    while (true) { 
         cout << "> ";
         getline (cin, inputText);
         
