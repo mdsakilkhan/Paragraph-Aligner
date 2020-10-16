@@ -18,19 +18,19 @@ int main() {
 		}
 		
 		if ((inputText.size() - 1) != inputText.find_last_of(" ")) {		// This process adds a space at the end of the each getline 
-			inputText = inputText + " ";									// to make sure that the last word of one line and the first 
-		}																	// word of the next line are seperated.	
+			inputText = inputText + " ";					// to make sure that the last word of one line and the first 
+		}									// word of the next line are seperated.	
 		
 		if ((inputText.size() - 1) == inputText.find_last_of(" ")) {
 			inputText = inputText;
 		}
 		
-		finalText.insert(finalText.size(), inputText);						// This add all the getlines strings into one large string.
+		finalText.insert(finalText.size(), inputText);				// This add all the getlines strings into one large string.
     }
 	
     while (true) {
-        tempWord = "";														// Here the letters between spaces are considered a temporary 
-		tempWord.append(finalText, 0, finalText.find(" "));					// word which then is added to a vector.
+        tempWord = "";									// Here the letters between spaces are considered a temporary 
+		tempWord.append(finalText, 0, finalText.find(" "));			// word which then is added to a vector.
         
 		allText.push_back (tempWord);
         finalText.replace(0, finalText.find(" ")+1, "");
@@ -46,8 +46,8 @@ int main() {
 	
 	longestWord = 0;														
 	
-	for (int i = 0; i < allText.size(); ++i) {								// This will find the size of longest word in the whole text
-		if (longestWord <= allText[i].size()) {								// which wil be needed later on.
+	for (int i = 0; i < allText.size(); ++i) {					// This will find the size of longest word in the whole text
+		if (longestWord <= allText[i].size()) {					// which wil be needed later on.
 			longestWord = allText[i].size();
 		}
 		
@@ -56,7 +56,7 @@ int main() {
 		}
 	}
 
-	while (true) {															// A big loop for the whole paragraph.
+	while (true) {									// A big loop for the whole paragraph.
 		cout << "Enter left|right|center and paragraph width: ";
 		cin >> format >> width;
 		
@@ -89,23 +89,23 @@ int main() {
 			continue;
 		}
 	
-		allTextdup = allText;												// This duplicate vector can be changed without changing the original.
+		allTextdup = allText;							// This duplicate vector can be changed without changing the original.
 		
-		while (true) {														// A loop for the lines.									
+		while (true) {								// A loop for the lines.									
 			if (allTextdup.size() == 0) { 
 				break; 
 			}
 			
-			line = "";														// The line variable will be the series of words that can fit in a line.
-			lineWidth = width;												// This variable represents the amount of space left in a line.
+			line = "";							// The line variable will be the series of words that can fit in a line.
+			lineWidth = width;						// This variable represents the amount of space left in a line.
 			turns = allTextdup.size();
 			
-			while (true) {													// A loop for each word.
+			while (true) {							// A loop for each word.
 				if (allTextdup[0].size() <= lineWidth) {
 					line.append(allTextdup[0]);	
 					lineWidth = lineWidth - allTextdup[0].size();
-					allTextdup.erase(allTextdup.begin());					// This takes out the fisrt string in the vector so that the next word is allTextdup[0].
-					turns = turns - 1;										// The turns makes sure that the loop runs for every word.
+					allTextdup.erase(allTextdup.begin());		// This takes out the fisrt string in the vector so that the next word is allTextdup[0].
+					turns = turns - 1;				// The turns makes sure that the loop runs for every word.
 				}
 				
 				else { 
@@ -128,13 +128,13 @@ int main() {
 			
 			if (format == "left") {
 				for (int i = 0; i < lineWidth; i++) {
-					line.append(" ");										// Adds spaces at the end.
+					line.append(" ");				// Adds spaces at the end.
 				}
 			}
 			
 			if (format == "right") {
 				for (int i = 0; i < lineWidth; i++) {
-					line.insert(0, " "); 									// Adds spaces at the beginning.
+					line.insert(0, " "); 				// Adds spaces at the beginning.
 				}
 			}
             
